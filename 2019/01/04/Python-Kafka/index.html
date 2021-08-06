@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Python Kafka - Junxin&#039;s Notes</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="junxin&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon-16x16.ico"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="junxin&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" sizes="16x16" href="/img/favicon-16x16.ico"><link rel="apple-touch-icon" sizes="32x32" href="/img/favicon-32x32.ico"><link rel="apple-touch-icon" sizes="48x48" href="/img/favicon-48x48.ico"><meta name="description" content="kafka是一个分布式消息队列。具有高性能、持久化、多副本备份、横向扩展能力。生产者往队列里写消息，消费者从队列里取消息进行业务逻辑。一般在架构设计中起到解耦、削峰、异步处理的作用。  Confluent kafka clientReferencehttps:&amp;#x2F;&amp;#x2F;anaconda.org&amp;#x2F;conda-forge&amp;#x2F;python-confluent-kafka https:&amp;#x2F;&amp;#x2F;docs.conflu"><meta property="og:type" content="blog"><meta property="og:title" content="Python Kafka"><meta property="og:url" content="http://gjx.me/2019/01/04/Python-Kafka/"><meta property="og:site_name" content="Junxin&#039;s Notes"><meta property="og:description" content="kafka是一个分布式消息队列。具有高性能、持久化、多副本备份、横向扩展能力。生产者往队列里写消息，消费者从队列里取消息进行业务逻辑。一般在架构设计中起到解耦、削峰、异步处理的作用。  Confluent kafka clientReferencehttps:&amp;#x2F;&amp;#x2F;anaconda.org&amp;#x2F;conda-forge&amp;#x2F;python-confluent-kafka https:&amp;#x2F;&amp;#x2F;docs.conflu"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://cloud.gh60.cn/s/2x2cRjaJGaTF4Se/preview"><meta property="article:published_time" content="2019-01-04T01:34:20.000Z"><meta property="article:modified_time" content="2021-08-06T05:06:41.427Z"><meta property="article:author" content="Junxin Gao"><meta property="article:tag" content="python"><meta property="article:tag" content="kafka"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="http://cloud.gh60.cn/s/2x2cRjaJGaTF4Se/preview"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://gjx.me/2019/01/04/Python-Kafka/"},"headline":"Python Kafka","image":[],"datePublished":"2019-01-04T01:34:20.000Z","dateModified":"2021-08-06T05:06:41.427Z","author":{"@type":"Person","name":"Junxin Gao"},"publisher":{"@type":"Organization","name":"Junxin's Notes","logo":{"@type":"ImageObject","url":"http://gjx.me/img/logo.png"}},"description":"kafka是一个分布式消息队列。具有高性能、持久化、多副本备份、横向扩展能力。生产者往队列里写消息，消费者从队列里取消息进行业务逻辑。一般在架构设计中起到解耦、削峰、异步处理的作用。  Confluent kafka clientReferencehttps:&#x2F;&#x2F;anaconda.org&#x2F;conda-forge&#x2F;python-confluent-kafka https:&#x2F;&#x2F;docs.conflu"}</script><link rel="canonical" href="http://gjx.me/2019/01/04/Python-Kafka/"><link rel="icon" href="/img/favicon-32x32.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"></head><body class="is-1-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="Junxin&#039;s Notes" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-12"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2019-01-04T01:34:20.000Z" title="1/4/2019, 1:34:20 AM">2019-01-04</time>发表</span><span class="level-item"><time dateTime="2021-08-06T05:06:41.427Z" title="8/6/2021, 5:06:41 AM">2021-08-06</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/kafka/">kafka</a></span><span class="level-item">2 分钟读完 (大约341个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">Python Kafka</h1><div class="content"><blockquote>
+<p>kafka是一个分布式消息队列。具有高性能、持久化、多副本备份、横向扩展能力。生产者往队列里写消息，消费者从队列里取消息进行业务逻辑。一般在架构设计中起到解耦、削峰、异步处理的作用。</p>
+</blockquote>
+<h2 id="Confluent-kafka-client"><a href="#Confluent-kafka-client" class="headerlink" title="Confluent kafka client"></a>Confluent kafka client</h2><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a target="_blank" rel="noopener" href="https://anaconda.org/conda-forge/python-confluent-kafka">https://anaconda.org/conda-forge/python-confluent-kafka</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.confluent.io/current/clients/confluent-kafka-python/">https://docs.confluent.io/current/clients/confluent-kafka-python/</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/confluentinc/confluent-kafka-python">https://github.com/confluentinc/confluent-kafka-python</a></p>
+<p><a target="_blank" rel="noopener" href="https://kafka.apache.org/quickstart">https://kafka.apache.org/quickstart</a></p>
+<h3 id="Envs"><a href="#Envs" class="headerlink" title="Envs"></a>Envs</h3><ul>
+<li>anaconda 4.5.11</li>
+<li>python 3.6</li>
+<li>python-confluent-kafka 0.11.4</li>
+</ul>
+<h3 id="Prepare"><a href="#Prepare" class="headerlink" title="Prepare"></a>Prepare</h3><ol>
+<li><p>建立新的python3环境</p>
+<p><code>conda create --name confluent-kafka-env python=3.6</code></p>
+<p><code>conda activate confluent-kafka-env</code></p>
+</li>
+<li><p>通过<code>conda</code>安装 confluent kafka</p>
+<p><code>conda install python-confluent-kafka </code></p>
+</li>
+<li><p>下载并启动kafka server</p>
+<p><code>wget http://mirrors.hust.edu.cn/apache/kafka/2.1.0/kafka_2.11-2.1.0.tgz &amp;&amp; tar -xzf kafka_2.11-2.1.0.tgz </code></p>
+<p><code>cd kafka_2.11-2.1.0</code></p>
+<p><code>bin/zookeeper-server-start.sh config/zookeeper.properties</code></p>
+<p><code>bin/kafka-server-start.sh config/server.properties</code></p>
+</li>
+</ol>
+<h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><p><a target="_blank" rel="noopener" href="https://github.com/Murugar/ConfluentPythonKafka.git">https://github.com/Murugar/ConfluentPythonKafka.git</a></p>
+<p><strong>Producer.py</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> gmtime, strftime, sleep</span><br><span class="line"><span class="keyword">from</span> confluent_kafka <span class="keyword">import</span> Producer</span><br><span class="line"></span><br><span class="line">p = Producer(&#123;<span class="string">&#x27;bootstrap.servers&#x27;</span>: <span class="string">&#x27;localhost:9092&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        now = strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>, gmtime())</span><br><span class="line">        p.produce(<span class="string">&#x27;test_topic&#x27;</span>, now.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        p.flush()</span><br><span class="line">        sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#p.produce(&#x27;mytopic&#x27;, &#x27;Test Message&#x27;)</span></span><br><span class="line"><span class="comment">#p.flush()</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Consumer.py</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> confluent_kafka <span class="keyword">import</span> Consumer, KafkaError</span><br><span class="line"></span><br><span class="line">c = Consumer(&#123;<span class="string">&#x27;bootstrap.servers&#x27;</span>: <span class="string">&#x27;localhost:9092&#x27;</span>, <span class="string">&#x27;group.id&#x27;</span>: <span class="string">&#x27;mygroup&#x27;</span>,</span><br><span class="line">              <span class="string">&#x27;default.topic.config&#x27;</span>: &#123;<span class="string">&#x27;auto.offset.reset&#x27;</span>: <span class="string">&#x27;smallest&#x27;</span>&#125;&#125;)</span><br><span class="line">c.subscribe([<span class="string">&#x27;test_topic&#x27;</span>])</span><br><span class="line">running = <span class="literal">True</span></span><br><span class="line"><span class="keyword">while</span> running:</span><br><span class="line">    msg = c.poll()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> msg.error():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Received message: %s&#x27;</span> % msg.value().decode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">    <span class="keyword">elif</span> msg.error().code() != KafkaError._PARTITION_EOF:</span><br><span class="line">        <span class="built_in">print</span>(msg.error())</span><br><span class="line">        running = <span class="literal">False</span></span><br><span class="line">c.close()</span><br></pre></td></tr></table></figure>
+
+<p>运行python</p>
+<p><code>python Producer.py</code></p>
+<p><code>python Consumer.py</code></p>
+<p>consumer 可以接收到来自 producer 的msg</p>
+<p><img src="http://cloud.gh60.cn/s/2x2cRjaJGaTF4Se/preview"></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Python Kafka</p><p><a href="http://gjx.me/2019/01/04/Python-Kafka/">http://gjx.me/2019/01/04/Python-Kafka/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Junxin Gao</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2019-01-04</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-08-06</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/python/">python</a><a class="link-muted mr-2" rel="tag" href="/tags/kafka/">kafka</a></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=60221afb1e16b800121b009a&amp;product=inline-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/img/wechat_qrcode.png" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2019/01/04/Point-set-registration/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Point set registration</span></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'http://gjx.me/2019/01/04/Python-Kafka/';
+            this.page.identifier = '2019/01/04/Python-Kafka/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'junxingao' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><!--!--><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="Junxin&#039;s Notes" height="28"></a><p class="is-size-7"><span>&copy; 2021 Junxin Gao</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
