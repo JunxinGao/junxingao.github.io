@@ -66,26 +66,6 @@
   </entry>
   
   <entry>
-    <title>大数据相关资源</title>
-    <link href="http://gjx.me/2021/08/06/datascience-resources/"/>
-    <id>http://gjx.me/2021/08/06/datascience-resources/</id>
-    <published>2021-08-06T10:19:21.000Z</published>
-    <updated>2022-06-03T11:29:26.323Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="网上资料"><a href="#网上资料" class="headerlink" title="网上资料"></a>网上资料</h1><p><a href="https://zhuanlan.zhihu.com/pydatalysis">https://zhuanlan.zhihu.com/pydatalysis</a></p><h1 id="开源BI系统"><a href="#开源BI系统" class="headerlink" title="开源BI系统"></a>开源BI系统</h1><table><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td>Superset</td><td></td><td></td></tr><tr><td>Metabase</td><td></td><td></td></tr><tr><td>Redash</td><td></td><td></td></tr><tr><td>Hue</td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table><h1 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h1><table><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td>pyecharts</td><td></td><td></td></tr><tr><td>plotly</td><td></td><td></td></tr><tr><td>bokeh</td><td></td><td></td></tr><tr><td>matplotlib</td><td></td><td></td></tr><tr><td>Pandas-Bokeh</td><td><a href="https://github.com/PatrikHlobil/Pandas-Bokeh">https://github.com/PatrikHlobil/Pandas-Bokeh</a></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;网上资料&quot;&gt;&lt;a href=&quot;#网上资料&quot; class=&quot;headerlink&quot; title=&quot;网上资料&quot;&gt;&lt;/a&gt;网上资料&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/pydatalysis&quot;&gt;https://zhuan</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>隐藏ubuntu用户登录</title>
     <link href="http://gjx.me/2021/08/06/2021/ubuntu_hide_user_login/"/>
     <id>http://gjx.me/2021/08/06/2021/ubuntu_hide_user_login/</id>
