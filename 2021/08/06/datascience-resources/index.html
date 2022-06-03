@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>大数据相关资源 - Junxin&#039;s Notes</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Junxin&#039;s notes"><meta name="msapplication-TileImage" content="/img/favicon-16x16.ico"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Junxin&#039;s notes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" sizes="16x16" href="/img/favicon-16x16.ico"><link rel="apple-touch-icon" sizes="32x32" href="/img/favicon-32x32.ico"><link rel="apple-touch-icon" sizes="48x48" href="/img/favicon-48x48.ico"><meta name="description" content="网上资料https:&amp;#x2F;&amp;#x2F;zhuanlan.zhihu.com&amp;#x2F;pydatalysis 开源BI系统         Superset     Metabase     Redash     Hue                         数据可视化         pyecharts     plotly     bokeh     matplotlib     Pandas-Bokeh"><meta property="og:type" content="blog"><meta property="og:title" content="大数据相关资源"><meta property="og:url" content="http://gjx.me/2021/08/06/datascience-resources/"><meta property="og:site_name" content="Junxin&#039;s Notes"><meta property="og:description" content="网上资料https:&amp;#x2F;&amp;#x2F;zhuanlan.zhihu.com&amp;#x2F;pydatalysis 开源BI系统         Superset     Metabase     Redash     Hue                         数据可视化         pyecharts     plotly     bokeh     matplotlib     Pandas-Bokeh"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://gjx.me/img/og_image.png"><meta property="article:published_time" content="2021-08-06T10:19:21.000Z"><meta property="article:modified_time" content="2022-06-03T11:29:26.323Z"><meta property="article:author" content="Junxin Gao"><meta property="article:tag" content="junxin"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://gjx.me/2021/08/06/datascience-resources/"},"headline":"大数据相关资源","image":["http://gjx.me/img/og_image.png"],"datePublished":"2021-08-06T10:19:21.000Z","dateModified":"2022-06-03T11:29:26.323Z","author":{"@type":"Person","name":"Junxin Gao"},"publisher":{"@type":"Organization","name":"Junxin's Notes","logo":{"@type":"ImageObject","url":"http://gjx.me/img/logo.png"}},"description":"网上资料https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;pydatalysis 开源BI系统         Superset     Metabase     Redash     Hue                         数据可视化         pyecharts     plotly     bokeh     matplotlib     Pandas-Bokeh"}</script><link rel="canonical" href="http://gjx.me/2021/08/06/datascience-resources/"><link rel="icon" href="/img/favicon-32x32.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-207102365-1" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'UA-207102365-1');</script><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+          Array
+              .from(document.querySelectorAll('.tab-content'))
+              .forEach($tab => {
+                  $tab.classList.add('is-hidden');
+              });
+          Array
+              .from(document.querySelectorAll('.tabs li'))
+              .forEach($tab => {
+                  $tab.classList.remove('is-active');
+              });
+          const $activeTab = document.querySelector(location.hash);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Junxin's Notes" type="application/atom+xml">
+</head><body class="is-1-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="Junxin&#039;s Notes" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-12"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-08-06T10:19:21.000Z" title="8/6/2021, 10:19:21 AM">2021-08-06</time>发表</span><span class="level-item"><time dateTime="2022-06-03T11:29:26.323Z" title="6/3/2022, 11:29:26 AM">2022-06-03</time>更新</span><span class="level-item">几秒读完 (大约35个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">大数据相关资源</h1><div class="content"><h1 id="网上资料"><a href="#网上资料" class="headerlink" title="网上资料"></a>网上资料</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/pydatalysis">https://zhuanlan.zhihu.com/pydatalysis</a></p>
+<h1 id="开源BI系统"><a href="#开源BI系统" class="headerlink" title="开源BI系统"></a>开源BI系统</h1><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Superset</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Metabase</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Redash</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Hue</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h1><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>pyecharts</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>plotly</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>bokeh</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>matplotlib</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Pandas-Bokeh</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/PatrikHlobil/Pandas-Bokeh">https://github.com/PatrikHlobil/Pandas-Bokeh</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></div><div class="article-licensing box"><div class="licensing-title"><p>大数据相关资源</p><p><a href="http://gjx.me/2021/08/06/datascience-resources/">http://gjx.me/2021/08/06/datascience-resources/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Junxin Gao</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-08-06</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2022-06-03</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=60221afb1e16b800121b009a&amp;product=inline-share-buttons" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/08/10/2021/aws-shell-cli-binary-format-issue/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">aws-shell &quot;&#039;Namespace&#039; object has no attribute &#039;cli_binary_format&#039;&quot;</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/08/06/2021/ubuntu_hide_user_login/"><span class="level-item">隐藏ubuntu用户登录</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><!--!--><div class="column column-right  order-3 is-sticky"><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="Junxin&#039;s Notes" height="28"></a><p class="is-size-7"><span>&copy; 2022 Junxin Gao</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "block",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
